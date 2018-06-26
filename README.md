@@ -16,6 +16,9 @@ This repository contains supplemental scripts and data used in the experiments p
 * `demud_path` - The `selections-kn.csv` output file from DEMUD `-v`
 * `perfplot_path` - The path to the discovery performance plot, if it was generated.
 
+-----------
+
+`plot/plot_exp.py` and `plot/utli_plot.py` were used to generate the plots shown in the paper. `plot_exp.py` requires the directory containing DEMUD result folders. Note that, since these scripts were used specifically for our set of experiments, they may not be easy to use for other experiments.
 
 ## Data
 
