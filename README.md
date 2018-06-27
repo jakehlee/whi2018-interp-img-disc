@@ -20,6 +20,14 @@ This repository contains supplemental scripts and data used in the experiments p
 
 `plot/plot_exp.py` and `plot/utli_plot.py` were used to generate the plots shown in the paper. `plot_exp.py` requires the directory containing DEMUD result folders. Note that, since these scripts were used specifically for our set of experiments, they may not be easy to use for other experiments.
 
+-----------
+
+`demud_inversion_2015.py` is a modified version of `demo.py` from [Dosovitskiy and Brox, 2015](https://arxiv.org/abs/1506.02753). It reads each of the output CSVs from DEMUD `-v/--cnn` (selected features, reconstructed features, and residual features), and inverts them for visualization. The required pretrained model definitions are available [here](https://lmb.informatik.uni-freiburg.de/resources/software.php)
+
+-----------
+
+`build_imageset/ext_from_train.py` builds the balanced ImageNet dataset used in the experiments from the ILSVRC 2012 training set. The classes to be pulled are specified in `build_imageset/random_classes.txt`. The files are renamed to match the pattern `classID_imageNO.jpg` and placed in their respective subfolders; for example, an image may be `/output/n02009912/n02009912_0.jpg`.
+
 ## Data
 
 `sun-class/` includes an additional "sun" class to the Mars image dataset available on [Zenodo](http://doi.org/10.5281/zenodo.1049137). These 21 additional images were included for the experiments presented in the paper.
