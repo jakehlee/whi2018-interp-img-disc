@@ -4,6 +4,29 @@
 
 This repository contains supplemental scripts and data used in the experiments presented in the paper.
 
+## Step-by-step instructions for running experiments
+
+1. **Download the imageset** - It is recommended that the image filename include the class information. The images can be in class-related subfolders; if not, it can be placed in a single subfolder (ex. `/data/1/*.jpg`)
+
+2. **Preprocess the imageset** - We recommend scaling/center-cropping your images to 227x227 first. We used imagemagick:
+	`$ mogrify -path imageset/# -format jpg -resize "227x227^" -gravity center -crop 227x227+0+0 +repage imageset/#/*.jpg`
+
+3. **Download/install DEMUD** - Available from https://github.com/wkiri/DEMUD
+
+4. **Extract features** - Extract features from the images by using `DEMUD/scripts/feat_csv.py`. The extracted features will be saved as a CSV, with the first column being the image name.
+
+5. **Run DEMUD on features** - Run DEMUD by adding the path to the feature CSV in `demud.config` at `floatdatafile` and running
+	`python demud.py -v --init-item=svd --k=50`
+	It will output `recon-cnn-k=50...`, the reconstructed features, `resid-cnn-k50...`, the residual features, `select-cnn-k=50...`, the features of the selected image, and `selections-k50.csv`, a list of selected image names (in corresponding order with the other outputs).
+
+6. **Download D&B 2015** - Available from https://lmb.informatik.uni-freiburg.de/resources/software.php
+
+7. **Visualize the output features** - Using `demud_inversion_2015.py` provided in this repo (see below for instructions)
+
+8. **Plot discovery rates (optional)** - Using `plot/plot_exp.py` provided in this repo
+
+9. **Organize your visualizations** - Using `gen_html.py` provided in this repo 
+
 ## Scripts
 
 `gen_html.py` collects the results from DEMUD and Dosovitskiy and Brox inversions into a single HTML file for convenient viewing. It requires the following paths to be edited into the appropriate variables:
