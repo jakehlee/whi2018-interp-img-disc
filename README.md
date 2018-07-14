@@ -43,7 +43,7 @@ Note: You will need to install Caffe and to specify the trained Caffe model from
 
 -----------
 
-`src/plot/plot_exp.py` and `src/plot/utli_plot.py` were used to generate the plots shown in the paper. `plot_exp.py` requires the directory containing DEMUD result folders. Note that, since these scripts were used specifically for our set of experiments, they may not be easy to use for other experiments.
+`src/plot/plot_exp.py` and `src/plot/util_plot.py` were used to generate the plots shown in the paper. `plot_exp.py` requires the directory containing DEMUD result folders. Note that, since these scripts were used specifically for our set of experiments, they may not be easy to use for other experiments.
 
 -----------
 
