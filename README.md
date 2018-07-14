@@ -13,7 +13,9 @@ This repository contains supplemental scripts and data used in the experiments p
 
 3. **Download/install DEMUD** - Available from https://github.com/wkiri/DEMUD
 
-4. **Extract features** - Extract features from the images by using `DEMUD/scripts/feat_csv.py`. The extracted features will be saved as a CSV, with the first column being the image name.
+4. **Extract features** - Extract features from the images by using `DEMUD/scripts/cnn_feat_extraction/feat_csv.py`. The extracted features will be saved as a CSV, with the first column being the image name.
+
+Note: You will need to install Caffe and to specify the trained Caffe model from which the features will be extracted.  We used Caffe's pre-trained network called `bvlc_reference_caffenet`.
 
 5. **Run DEMUD on features** - Run DEMUD by adding the path to the feature CSV in `demud.config` at `floatdatafile` and running
 	`python demud.py -v --init-item=svd --k=50`
@@ -41,7 +43,7 @@ This repository contains supplemental scripts and data used in the experiments p
 
 -----------
 
-`src/plot/plot_exp.py` and `src/plot/utli_plot.py` were used to generate the plots shown in the paper. `plot_exp.py` requires the directory containing DEMUD result folders. Note that, since these scripts were used specifically for our set of experiments, they may not be easy to use for other experiments.
+`src/plot/plot_exp.py` and `src/plot/util_plot.py` were used to generate the plots shown in the paper. `plot_exp.py` requires the directory containing DEMUD result folders. Note that, since these scripts were used specifically for our set of experiments, they may not be easy to use for other experiments.
 
 -----------
 
