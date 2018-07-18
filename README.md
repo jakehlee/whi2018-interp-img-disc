@@ -15,7 +15,7 @@ This repository contains supplemental scripts and data used in the experiments p
 
 4. **Extract features** - Extract features from the images by using `DEMUD/scripts/cnn_feat_extraction/feat_csv.py`. The extracted features will be saved as a CSV, with the first column being the image name.
 
-Note: You will need to install Caffe and to specify the trained Caffe model from which the features will be extracted.  We used Caffe's pre-trained network called `bvlc_reference_caffenet`.
+Note: You will need to install Caffe and to specify the trained Caffe model from which the features will be extracted.  We used Caffe's pre-trained network called `bvlc_reference_caffenet` with a modified `deploy.prototxt`. The modified prototxt is available in this repository.
 
 5. **Run DEMUD on features** - Run DEMUD by adding the path to the feature CSV in `demud.config` at `floatdatafile` and running
 	`python demud.py -v --init-item=svd --k=50`
@@ -52,6 +52,10 @@ Note: You will need to install Caffe and to specify the trained Caffe model from
 -----------
 
 `src/build_imageset/ext_from_train.py` builds the balanced ImageNet dataset used in the experiments from the ILSVRC 2012 training set. The classes to be pulled are specified in `build_imageset/random_classes.txt`. The files are renamed to match the pattern `classID_imageNO.jpg` and placed in their respective subfolders; for example, an image may be `/output/n02009912/n02009912_0.jpg`.
+
+-----------
+
+`src/deploy.prototxt` is a modified prototxt for the model `bvlc_reference_caffenet`. It is modified to perform ReLU separately instead of in-place for the fully connected layers, allowing us to extract features before ReLU is applied. It requires more memory to run, however.
 
 ## Data
 
