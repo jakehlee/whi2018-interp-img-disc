@@ -21,9 +21,9 @@ Note: You will need to install Caffe and to specify the trained Caffe model from
 	`python demud.py -v --init-item=svd --k=50`
 	It will output `recon-cnn-k=50...`, the reconstructed features, `resid-cnn-k50...`, the residual features, `select-cnn-k=50...`, the features of the selected image, and `selections-k50.csv`, a list of selected image names (in corresponding order with the other outputs).
 
-6. **Download D&B 2015** - Available from https://lmb.informatik.uni-freiburg.de/resources/software.php
+6. **Download D&B CVPR 2016** - Available from https://lmb.informatik.uni-freiburg.de/resources/software.php
 
-7. **Visualize the output features** - Using `src/demud_inversion_2015.py` provided in this repo (see below for instructions)
+7. **Visualize the output features** - Using `src/demud_inversion_cvpr2016.py` provided in this repo (see below for instructions)
 
 8. **Plot discovery rates (optional)** - Using `src/plot/plot_exp.py` provided in this repo
 
@@ -47,7 +47,7 @@ Note: You will need to install Caffe and to specify the trained Caffe model from
 
 -----------
 
-`src/demud_inversion_2015.py` is a modified version of `demo.py` from [Dosovitskiy and Brox, 2015](https://arxiv.org/abs/1506.02753). It reads each of the output CSVs from DEMUD `-v/--cnn` (selected features, reconstructed features, and residual features), and inverts them for visualization. The required pretrained model definitions are available [here](https://lmb.informatik.uni-freiburg.de/resources/software.php)
+`src/demud_inversion_cvpr2016.py` is a modified version of `demo.py` from [Dosovitskiy and Brox, CVPR 2016](https://arxiv.org/abs/1506.02753). It reads each of the output CSVs from DEMUD `-v/--cnn` (selected features, reconstructed features, and residual features), and inverts them for visualization. The required pretrained model definitions are available [here](https://lmb.informatik.uni-freiburg.de/resources/software.php)
 
 -----------
 
